@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentStory } from '@storybook/react';
 import { useState } from 'react';
 import { BarcodeScanner as BarcodeScannerComponent } from '../../components';

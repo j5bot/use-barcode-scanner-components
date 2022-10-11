@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { useBarcodeScanner } from 'use-barcode-scanner/dist/hooks/esm';
+import { useBarcodeScanner } from '@use-barcode-scanner/hooks';
 
 import './BarcodeScanner.css';
 

@@ -14,12 +14,12 @@ const makeDefaultConfig = (hooksOrComponents) => {
             input: `src/${hooksOrComponents}/index.ts`,
             output: [
                 {
-                    file: packageJson[hooksOrComponents].main,
+                    file: packageJson.main,
                     format: "cjs",
                     sourcemap: true,
                 },
                 {
-                    file: packageJson[hooksOrComponents].module,
+                    file: packageJson.module,
                     format: "esm",
                     sourcemap: true,
                 },
@@ -28,7 +28,7 @@ const makeDefaultConfig = (hooksOrComponents) => {
             plugins: [
                 resolve(),
                 commonjs(),
-                typescript({ tsconfig: `./tsconfig.${hooksOrComponents}.json` }),
+                typescript({ tsconfig: `./tsconfig.json` }),
                 postcss({
                     plugins: [autoprefixer()],
                     sourceMap: true,
@@ -39,8 +39,8 @@ const makeDefaultConfig = (hooksOrComponents) => {
             ],
         },
         {
-            input: `dist/${hooksOrComponents}/esm/index.d.ts`,
-            output: [{ file: `dist/${hooksOrComponents}/index.d.ts`, format: "esm" }],
+            input: `dist/esm/index.d.ts`,
+            output: [{ file: `dist/index.d.ts`, format: "esm" }],
             external: [ 'react', 'react-dom' ],
             plugins: [
                 dts(),
@@ -51,6 +51,5 @@ const makeDefaultConfig = (hooksOrComponents) => {
 };
 
 export default [
-    ...makeDefaultConfig('hooks'),
     ...makeDefaultConfig('components'),
 ];
