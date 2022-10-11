@@ -1,10 +1,9 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import autoprefixer from 'autoprefixer';
 import excludeDependenciesFromBundle from 'rollup-plugin-exclude-dependencies-from-bundle';
 import dts from "rollup-plugin-dts";
-import postcss from "rollup-plugin-postcss";
+import styles from "rollup-plugin-styles";
 
 const packageJson = require("./package.json");
 
@@ -26,22 +25,17 @@ const makeDefaultConfig = (hooksOrComponents) => {
             ],
             external: [ 'react', 'react-dom' ],
             plugins: [
+                styles({ mode: 'extract' }),
                 resolve(),
                 commonjs(),
                 typescript({ tsconfig: `./tsconfig.json` }),
-                postcss({
-                    plugins: [autoprefixer()],
-                    sourceMap: true,
-                    extract: true,
-                    minimize: true,
-                }),
                 excludeDependenciesFromBundle({ peerDependencies: true }),
             ],
         },
         {
             input: `dist/esm/index.d.ts`,
             output: [{ file: `dist/index.d.ts`, format: "esm" }],
-            external: [ 'react', 'react-dom' ],
+            external: [ 'react', 'react-dom', './BarcodeScanner.css' ],
             plugins: [
                 dts(),
                 excludeDependenciesFromBundle({ peerDependencies: true }),

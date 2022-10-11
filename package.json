@@ -1,9 +1,9 @@
 {
   "name": "@use-barcode-scanner/components",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": false,
   "main": "dist/index.js",
-  "module": "dist/hooks/esm/index.js",
+  "module": "dist/esm/index.js",
   "files": [
     "dist"
   ],
@@ -14,7 +14,11 @@
   "scripts": {
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "yarn build-storybook; node scripts/gh-pages-deploy.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +55,7 @@
     "@types/react-dom": "^18.0.0",
     "autoprefixer": "^10.4.12",
     "babel-loader": "^8.2.5",
+    "gh-pages": "^4.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -60,6 +65,7 @@
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.22",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-styles": "^4.0.0",
     "typescript": "^4.4.2",
     "typescript-plugin-css-modules": "^3.4.0",
     "webpack": "^5.74.0"
