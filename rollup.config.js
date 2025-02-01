@@ -16,16 +16,21 @@ const makeDefaultConfig = (hooksOrComponents) => {
                     file: packageJson.main,
                     format: "cjs",
                     sourcemap: true,
+                    assetFileNames: '[name][extname]',
                 },
                 {
                     file: packageJson.module,
                     format: "esm",
                     sourcemap: true,
+                    assetFileNames: '[name][extname]',
                 },
             ],
             external: [ 'react', 'react-dom' ],
             plugins: [
-                styles({ mode: 'extract' }),
+                styles({
+                    mode: ['extract', 'css/components.css'],
+                    dts: true,
+                }),
                 resolve(),
                 commonjs(),
                 typescript({ tsconfig: `./tsconfig.json` }),
