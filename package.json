@@ -1,6 +1,6 @@
 {
   "name": "@use-barcode-scanner/components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -13,7 +13,7 @@
   },
   "scripts": {
     "rollup": "rollup -c",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --https --ssl-cert ./scripts/localhost.crt --ssl-key ./scripts/localhost.key",
     "build-storybook": "build-storybook",
     "deploy-storybook": "yarn build-storybook; node scripts/gh-pages-deploy.js"
   },
