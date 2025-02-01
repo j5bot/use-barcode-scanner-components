@@ -71,7 +71,6 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
                         autoPlay={autoStart}
                         playsInline={true}
                     />
-                    {/*<div className={'match-canvas'}> </div>*/}
                     <canvas ref={canvasRef} width={canvasWidth} height={canvasHeight} />
                     {settings?.scanLine && <div className={'scanline'}>-</div>}
                 </div>

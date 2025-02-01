@@ -1,5 +1,5 @@
 import { ComponentStory } from '@storybook/react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { BarcodeScanner as BarcodeScannerComponent } from '../../components';
 import { BarcodeScannerProps } from '../../components';
 
@@ -22,6 +22,7 @@ const BarcodeScannerStories = (props: BarcodeScannerProps & { scanLine?: boolean
     const onScan = (code: string) => {
         setCodes(codes.concat(code));
     };
+    // @ts-ignore IDE doesn't recognize the MediaDeviceInfo built-in type
     const onDevices = (devices: MediaDeviceInfo[]) => {
         setDevices(devices);
     };

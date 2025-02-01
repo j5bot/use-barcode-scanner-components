@@ -46,6 +46,7 @@
     width: var(--canvas-element-width);
     height: var(--canvas-element-height);
 }
+
 /* for confirming that the zoom center is correct */
 /*.webcam-scanner-preview {*/
 /*    overflow: visible;*/
